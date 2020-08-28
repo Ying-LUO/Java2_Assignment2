@@ -1,0 +1,101 @@
+@startuml Bradshaw Marina Case Study Use Case Diagram
+
+left to right direction
+
+actor "Marina Maneger" as mm
+actor "Existing Customer" as ec
+actor "New Customer" as nc
+
+rectangle CustomerManagement{
+    usecase "process queries" as UC1
+    usecase "add new customer" as UC2
+    usecase "maintain customer information" as UC3
+}
+
+rectangle BoatManagement{
+    usecase "add new boat" as UC4
+    usecase "maintain boat information" as UC5
+    usecase "maintain dock and slip information" as UC6
+}
+
+rectangle BoatService{
+    usecase "handling the boat" as UC13
+    usecase "painting the bottom" as UC14
+    usecase "working on the engine" as UC15
+}
+
+rectangle LeaseManagement{
+    usecase "lease slip" as UC7
+    usecase "renew slip lease" as UC8
+    usecase "transfer lease" as UC9
+    usecase "process reports" as UC10
+}
+
+rectangle BillingService{
+    usecase "generate bill for slip lease" as UC11
+    usecase "generate bill for boat service" as UC12
+    usecase "record payments" as UC16
+    usecase "send late notice" as UC17
+    usecase "produce account receivable" as UC18
+    usecase "accounting reports" as UC19
+}
+
+mm --> UC1
+mm --> UC2
+mm --> UC3
+mm --> UC4
+mm --> UC5
+mm --> UC6
+mm --> UC7
+mm --> UC8
+mm --> UC9
+mm --> UC10
+mm --> UC11
+mm --> UC12
+mm --> UC13
+mm --> UC14
+mm --> UC15
+mm --> UC16
+mm --> UC17
+mm --> UC18
+mm --> UC19
+
+note "Customer Information:\n\tName\n\tAddress\n\tPhoneNO" as N1
+note "Updated Customer Information" as N2
+note right of UC1 
+  query by 
+        customer's name
+        phoneNo
+        address key words
+end note
+
+note right of UC4
+  Boat Information
+end note
+
+note right of UC5
+  Updated Boat Information
+end note
+
+note right of UC6
+  Dock Information
+  Slip Information
+end note
+
+note right of UC7
+  Lease Information
+  Slip Information
+end note
+
+note right of UC8
+    Lease Information
+end note
+
+nc .. N1
+N1 .. UC2
+
+ec .. N2
+N2 .. UC3
+
+
+@enduml
