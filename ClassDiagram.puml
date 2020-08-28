@@ -1,0 +1,147 @@
+@startuml Bradshaw Marina Case Study
+
+abstract class Lease{
+    amount 
+    startDate 
+    endDate
+    calculateFee()
+}
+
+class AnnualLease{
+    payMonthly 
+    balanceDue
+    calculateFee()
+}
+
+class DailyLease{
+    numberOfDays
+    calculateFee()
+}
+
+abstract class Boat{
+    stateRegistrationNO 
+    boatLength 
+    manufactor 
+    year
+    assignBoatToSlip()
+    removeBoatFromSlip()
+    tellAboutSelf()
+}
+
+class Sailboat{
+    keelDedpth
+    numberSails
+    motorType
+    tellAboutSelf()
+}
+
+class Powerboat{
+    numberEngines
+    fuelType
+    tellAboutSelf()
+}
+
+class Rowboat{
+    typeOfMaterial
+    oarType
+    tellAboutSelf()
+}
+
+class CruisingSailBoat{
+    lifeRaftManufactor
+}
+
+class PersonalWatercraft{
+    numberOfPassengers
+    topSpeed
+}
+
+class Customer{
+    -name
+    -address
+    -phoneNO
+}
+
+class Slip{
+    slipID 
+    width 
+    slipLength
+    leaseSlip()
+}
+
+class CoveredSlip{
+    height 
+    door
+}
+
+class Dock{
+    dockID
+    location
+    electricity
+    water
+    addSlipToDock()
+}
+
+class BoatService{
+    calculateCharge()
+    produceMonthlyReport()
+}
+
+class ServiceType{
+    repair()
+    haulOut()
+    painting()
+    maintain()
+}
+
+class ServiceParts{
+    partOfBoat : String[]
+}
+
+
+class ServiceTransaction{
+    deposit()
+    partialPayment()
+    credit()
+    refund()
+}
+
+interface BillingOperation{
+    generateBill()
+    recordPayment()
+    sendLateNotice()
+    produceAccountReceivable()
+}
+
+
+Customer "0..*" - "0..*" Slip
+(Customer, Slip) .. Lease
+
+Boat <|-- Sailboat
+Boat <|-- Powerboat
+Boat <|-- Rowboat
+
+Sailboat <|-- CruisingSailBoat
+Powerboat <|-- PersonalWatercraft
+
+Slip <|-- CoveredSlip
+
+Lease <|-- AnnualLease
+Lease <|-- DailyLease
+
+Customer "1" o-- "many" Boat
+Dock "1" o-- "many" Slip
+Slip "1" o-- "many" Boat
+
+Customer "1..*" - "1..*" Boat
+(Customer, Boat) .. BoatService
+
+class BoatService implements BillingOperation
+class Lease implements BillingOperation
+
+BoatService "1" *-- "many" ServiceTransaction
+BoatService "1" *-- "1" ServiceType
+ServiceType "1" *-- "many" ServiceParts
+
+
+@enduml
