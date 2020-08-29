@@ -2,17 +2,17 @@ public abstract class Boat{
 
     public String stateRegistrationNO;
     public double boatLength;
-    public String manufactor;
+    public String manufacturer;
     public int year;
 
     public abstract void assignBoatToSlip();
     public abstract void removeBoatFromSlip();
     public abstract String tellAboutSelf();
 
-    public Boat(String stateRegistrationNO, double boatLength, String manufactor, int year) {
+    public Boat(String stateRegistrationNO, double boatLength, String manufacturer, int year) {
         this.stateRegistrationNO = stateRegistrationNO;
         this.boatLength = boatLength;
-        this.manufactor = manufactor;
+        this.manufacturer = manufacturer;
         this.year = year;
     }
 
@@ -32,12 +32,12 @@ public abstract class Boat{
         this.boatLength = boatLength;
     }
 
-    public String getManufactor() {
-        return manufactor;
+    public String getManufacturer() {
+        return manufacturer;
     }
 
-    public void setManufactor(String manufactor) {
-        this.manufactor = manufactor;
+    public void setManufactor(String manufacturer) {
+        this.manufacturer = manufacturer;
     }
 
     public int getYear() {

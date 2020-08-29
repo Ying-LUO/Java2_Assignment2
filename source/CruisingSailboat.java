@@ -1,19 +1,19 @@
 public class CruisingSailboat extends Sailboat{
 
-    public String lifeRaftManufactor;
+    public String lifeRaftManufacturer;
 
-    public CruisingSailboat(String stateRegistrationNO, double boatLength, String manufactor, int year,
-            double keelDedpth, int numberSails, String[] motorType, String lifeRaftManufactor) {
-        super(stateRegistrationNO, boatLength, manufactor, year, keelDedpth, numberSails, motorType);
-        this.lifeRaftManufactor = lifeRaftManufactor;
+    public CruisingSailboat(String stateRegistrationNO, double boatLength, String manufacturer, int year,
+            double keelDedpth, int numberSails, MotorType motorType, String lifeRaftManufacturer) {
+        super(stateRegistrationNO, boatLength, manufacturer, year, keelDedpth, numberSails, motorType);
+        this.lifeRaftManufacturer = lifeRaftManufacturer;
     }
 
-    public String getLifeRaftManufactor() {
-        return lifeRaftManufactor;
+    public String getLifeRaftmanufacturer() {
+        return lifeRaftManufacturer;
     }
 
-    public void setLifeRaftManufactor(String lifeRaftManufactor) {
-        this.lifeRaftManufactor = lifeRaftManufactor;
+    public void setLifeRaftManufactor(String lifeRaftManufacturer) {
+        this.lifeRaftManufacturer = lifeRaftManufacturer;
     }
     
     

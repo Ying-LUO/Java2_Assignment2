@@ -1,11 +1,11 @@
 public class Powerboat extends Boat{
 
     public int numberEngines;
-    public String[] fuelType = {};
+    public FuelType fuelType;
 
-    public Powerboat(String stateRegistrationNO, double boatLength, String manufactor, int year, int numberEngines,
-            String[] fuelType) {
-        super(stateRegistrationNO, boatLength, manufactor, year);
+    public Powerboat(String stateRegistrationNO, double boatLength, String manufacturer, int year, int numberEngines,
+                    FuelType fuelType) {
+        super(stateRegistrationNO, boatLength, manufacturer, year);
         this.numberEngines = numberEngines;
         this.fuelType = fuelType;
     }
@@ -18,11 +18,11 @@ public class Powerboat extends Boat{
         this.numberEngines = numberEngines;
     }
 
-    public String[] getFuelType() {
+    public FuelType getFuelType() {
         return fuelType;
     }
 
-    public void setFuelType(String[] fuelType) {
+    public void setFuelType(FuelType fuelType) {
         this.fuelType = fuelType;
     }
 

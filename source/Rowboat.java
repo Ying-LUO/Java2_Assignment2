@@ -1,26 +1,28 @@
 public class Rowboat extends Boat{
 
-    public String[] typeOfMaterial;
-    public String[] oarType;
+    public MaterialType typeOfMaterial;
+    public OarType oarType;
 
-    public Rowboat(String stateRegistrationNO, double boatLength, String manufactor, int year) {
-        super(stateRegistrationNO, boatLength, manufactor, year);
-        // TODO Auto-generated constructor stub
+    public Rowboat(String stateRegistrationNO, double boatLength, String manufacturer, int year,
+            MaterialType typeOfMaterial, OarType oarType) {
+        super(stateRegistrationNO, boatLength, manufacturer, year);
+        this.typeOfMaterial = typeOfMaterial;
+        this.oarType = oarType;
     }
-
-    public String[] getTypeOfMaterial() {
+    
+    public MaterialType getTypeOfMaterial() {
         return typeOfMaterial;
     }
 
-    public void setTypeOfMaterial(String[] typeOfMaterial) {
+    public void setTypeOfMaterial(MaterialType typeOfMaterial) {
         this.typeOfMaterial = typeOfMaterial;
     }
 
-    public String[] getOarType() {
+    public OarType getOarType() {
         return oarType;
     }
 
-    public void setOarType(String[] oarType) {
+    public void setOarType(OarType oarType) {
         this.oarType = oarType;
     }
 
@@ -41,6 +43,7 @@ public class Rowboat extends Boat{
         // TODO Auto-generated method stub
         return null;
     }
+
 
     
 }

@@ -2,11 +2,11 @@ public class Sailboat extends Boat{
 
     public double keelDedpth;
     public int numberSails;
-    public String[] motorType = {};
+    public MotorType motorType;
 
-    public Sailboat(String stateRegistrationNO, double boatLength, String manufactor, int year, double keelDedpth,
-            int numberSails, String[] motorType) {
-        super(stateRegistrationNO, boatLength, manufactor, year);
+    public Sailboat(String stateRegistrationNO, double boatLength, String manufacturer, int year, double keelDedpth,
+            int numberSails, MotorType motorType) {
+        super(stateRegistrationNO, boatLength, manufacturer, year);
         this.keelDedpth = keelDedpth;
         this.numberSails = numberSails;
         this.motorType = motorType;
@@ -28,11 +28,11 @@ public class Sailboat extends Boat{
         this.numberSails = numberSails;
     }
 
-    public String[] getMotorType() {
+    public MotorType getMotorType() {
         return motorType;
     }
 
-    public void setMotorType(String[] motorType) {
+    public void setMotorType(MotorType motorType) {
         this.motorType = motorType;
     }
 

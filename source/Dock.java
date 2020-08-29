@@ -2,14 +2,22 @@ import java.util.ArrayList;
 
 public class Dock {
 
-    public Long dockID;
+    public int dockID;
     public String location;
     public Boolean electricity;
     public Boolean water;
 
     private ArrayList<Slip> slipList;
 
-    public Dock(Long dockID, String location, Boolean electricity, Boolean water) {
+    public Dock(){
+        this.dockID = 0;
+        this.location = "";
+        this.electricity = true;
+        this.water = true;
+        this.slipList = new ArrayList<Slip>();
+    }
+
+    public Dock(int dockID, String location, Boolean electricity, Boolean water) {
         this.dockID = dockID;
         this.location = location;
         this.electricity = electricity;
