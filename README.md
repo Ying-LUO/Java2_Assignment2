@@ -3,7 +3,7 @@ JohnAbbott College Java 2 Assignment 2 Group Workspace
 
 Team Member:
 Jiandong HAN
-Jenny LING
+Yueming LING
 Chunmei LIU
 Ying LUO
 Tingting SONG
