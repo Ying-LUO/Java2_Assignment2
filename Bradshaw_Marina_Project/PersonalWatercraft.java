@@ -1,3 +1,5 @@
+package Bradshaw_Marina_Project;
+
 public class PersonalWatercraft extends Powerboat {
 
     public int numberOfPassengers;

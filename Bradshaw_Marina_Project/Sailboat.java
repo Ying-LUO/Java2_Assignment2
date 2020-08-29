@@ -1,3 +1,5 @@
+package Bradshaw_Marina_Project;
+
 public class Sailboat extends Boat{
 
     public double keelDedpth;

@@ -1,4 +1,6 @@
-public class CruisingSailboat extends Sailboat{
+package Bradshaw_Marina_Project;
+
+public class CruisingSailboat extends Sailboat {
 
     public String lifeRaftManufacturer;
 

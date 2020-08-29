@@ -1,3 +1,5 @@
+package Bradshaw_Marina_Project;
+
 import java.util.Date;
 
 public abstract class Lease {

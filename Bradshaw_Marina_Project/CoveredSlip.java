@@ -1,4 +1,6 @@
-public class CoveredSlip extends Slip{
+package Bradshaw_Marina_Project;
+
+public class CoveredSlip extends Slip {
 
     public double height;
     public boolean door;

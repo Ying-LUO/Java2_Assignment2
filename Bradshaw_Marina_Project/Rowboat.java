@@ -1,3 +1,5 @@
+package Bradshaw_Marina_Project;
+
 public class Rowboat extends Boat{
 
     public MaterialType typeOfMaterial;

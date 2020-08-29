@@ -1,4 +1,6 @@
-public abstract class Boat{
+package Bradshaw_Marina_Project;
+
+public abstract class Boat {
 
     public String stateRegistrationNO;
     public double boatLength;
@@ -36,7 +38,7 @@ public abstract class Boat{
         return manufacturer;
     }
 
-    public void setManufactor(String manufacturer) {
+    public void setManufacturer(String manufacturer) {
         this.manufacturer = manufacturer;
     }
 
