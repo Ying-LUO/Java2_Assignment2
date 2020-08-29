@@ -1,116 +1,116 @@
-@startuml Bradshaw Marina Case Study
-
+@startuml Bradshaw Marina Case Study Class Diagram
+skinparam classAttributeIconSize 0
 abstract class Lease{
-    amount 
-    startDate 
-    endDate
-    calculateFee()
+    -amount : String
+    -startDate : Date
+    -endDate : Date
+    +calculateFee()
 }
 
 class AnnualLease{
-    payMonthly 
-    balanceDue
-    calculateFee()
+    -payMonthly : Double
+    -balanceDue : Double
+    +calculateFee()
 }
 
 class DailyLease{
-    numberOfDays
-    calculateFee()
+    -numberOfDays : Integer
+    +calculateFee()
 }
 
 abstract class Boat{
-    stateRegistrationNO 
-    boatLength 
-    manufactor 
-    year
-    assignBoatToSlip()
-    removeBoatFromSlip()
-    tellAboutSelf()
+    +stateRegistrationNO : String
+    +boatLength : Double
+    +manufactor : String
+    +year: String
+    +assignBoatToSlip()
+    +removeBoatFromSlip()
+    +String tellAboutSelf()
 }
 
 class Sailboat{
-    keelDedpth
-    numberSails
-    motorType
-    tellAboutSelf()
+    +keelDedpth : Double
+    +numberSails : Integer
+    +motorType : Enum
+    +String tellAboutSelf()
 }
 
 class Powerboat{
-    numberEngines
-    fuelType
-    tellAboutSelf()
+    +numberEngines : Integer
+    +fuelType : Enum
+    +String tellAboutSelf()
 }
 
 class Rowboat{
-    typeOfMaterial
-    oarType
-    tellAboutSelf()
+    +typeOfMaterial : Enum
+    +oarType : Enum
+    +String tellAboutSelf()
 }
 
 class CruisingSailBoat{
-    lifeRaftManufactor
+    +lifeRaftManufactor : String
 }
 
 class PersonalWatercraft{
-    numberOfPassengers
-    topSpeed
+    +numberOfPassengers : Integer
+    +topSpeed : Integer
 }
 
 class Customer{
-    -name
-    -address
-    -phoneNO
+    -name : String
+    -address : String
+    -phoneNO : String
 }
 
 class Slip{
-    slipID 
-    width 
-    slipLength
-    leaseSlip()
+    +slipID : Long
+    +width : Double
+    +slipLength : Double
+    +void leaseSlip()
 }
 
 class CoveredSlip{
-    height 
-    door
+    +height : Double
+    +door : Boolean
 }
 
 class Dock{
-    dockID
-    location
-    electricity
-    water
-    addSlipToDock()
+    +dockID : Long
+    +location : String
+    +electricity : Boolean
+    +water: Boolean
+    +void addSlipToDock(Long slipID)
 }
 
 class BoatService{
-    calculateCharge()
-    produceMonthlyReport()
+    +Double calculateCharge(Lease)
+    +String produceMonthlyReport()
 }
 
 class ServiceType{
-    repair()
-    haulOut()
-    painting()
-    maintain()
+    +void repair()
+    +void haulOut()
+    +void painting()
+    +void maintain()
 }
 
 class ServiceParts{
-    partOfBoat : String[]
+    +partOfBoat : String[]
 }
 
 
 class ServiceTransaction{
-    deposit()
-    partialPayment()
-    credit()
-    refund()
+    +void deposit()
+    +void partialPayment()
+    +void credit()
+    +void refund()
 }
 
 interface BillingOperation{
-    generateBill()
-    recordPayment()
-    sendLateNotice()
-    produceAccountReceivable()
+    +{abstract} void generateBill()
+    +{abstract} void recordPayment()
+    +{abstract} void sendLateNotice()
+    +{abstract} void produceAccountReceivable()
 }
 
 
@@ -140,6 +140,8 @@ class BoatService implements BillingOperation
 class Lease implements BillingOperation
 
 BoatService "1" *-- "many" ServiceTransaction
+Lease "1" *-- "many" ServiceTransaction
+
 BoatService "1" *-- "1" ServiceType
 ServiceType "1" *-- "many" ServiceParts
 
