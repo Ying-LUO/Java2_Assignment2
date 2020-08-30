@@ -5,6 +5,12 @@ public class Rowboat extends Boat{
     public MaterialType typeOfMaterial;
     public OarType oarType;
 
+    public Rowboat(){
+        super();
+        this.typeOfMaterial = MaterialType.Aluminum;
+        this.oarType = OarType.Sculling_Oars;
+    }
+
     public Rowboat(String stateRegistrationNO, double boatLength, String manufacturer, int year,
             MaterialType typeOfMaterial, OarType oarType) {
         super(stateRegistrationNO, boatLength, manufacturer, year);
@@ -29,21 +35,27 @@ public class Rowboat extends Boat{
     }
 
     @Override
-    public void assignBoatToSlip() {
-        // TODO Auto-generated method stub
-
+    public boolean assignBoatToSlip(Slip slip) {
+        if (slip == null || slip.boatList.contains(this)) {
+            return false;
+        }
+        slip.boatList.add(this);
+        return true;
     }
 
     @Override
-    public void removeBoatFromSlip() {
-        // TODO Auto-generated method stub
-
+    public boolean removeBoatFromSlip(Slip slip) {
+        if (slip == null || !slip.boatList.contains(this)) {
+            return false;
+        }
+        slip.boatList.remove(this);
+        return true;
     }
 
     @Override
     public String tellAboutSelf() {
-        // TODO Auto-generated method stub
-        return null;
+        return super.tellAboutSelf() + "Rowboat \n[typeOfMaterial=" + typeOfMaterial + 
+        "\noarType=" + oarType + "]";
     }
 
 

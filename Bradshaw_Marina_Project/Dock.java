@@ -27,12 +27,12 @@ public class Dock {
         this.slipList = new ArrayList<Slip>();
     }
     
-    public boolean addSlipToDock(Slip aSlip){
+    public boolean addSlipToDock(Slip slip){
 
-        if (aSlip == null || slipList.contains(aSlip)) {
+        if (slip == null || slipList.contains(slip)) {
             return false;
         }
-        slipList.add(aSlip);
+        slipList.add(slip);
         return true;
 
     }

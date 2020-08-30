@@ -5,6 +5,12 @@ public class Powerboat extends Boat{
     public int numberEngines;
     public FuelType fuelType;
 
+    public Powerboat(){
+        super();
+        this.numberEngines = 0;
+        this.fuelType = FuelType.MDO_marine_diesel_oil;
+    }
+
     public Powerboat(String stateRegistrationNO, double boatLength, String manufacturer, int year, int numberEngines,
                     FuelType fuelType) {
         super(stateRegistrationNO, boatLength, manufacturer, year);
@@ -29,21 +35,27 @@ public class Powerboat extends Boat{
     }
 
     @Override
-    public void assignBoatToSlip() {
-        // TODO Auto-generated method stub
-
+    public boolean assignBoatToSlip(Slip slip) {
+        if (slip == null || slip.boatList.contains(this)) {
+            return false;
+        }
+        slip.boatList.add(this);
+        return true;
     }
 
     @Override
-    public void removeBoatFromSlip() {
-        // TODO Auto-generated method stub
-
+    public boolean removeBoatFromSlip(Slip slip) {
+        if (slip == null || !slip.boatList.contains(this)) {
+            return false;
+        }
+        slip.boatList.remove(this);
+        return true;
     }
 
     @Override
     public String tellAboutSelf() {
-        // TODO Auto-generated method stub
-        return null;
+        return super.tellAboutSelf() + "Powerboat \n[fuelType=" + fuelType + 
+                        "\nnumberEngines=" + numberEngines + "]";
     }
     
 }

@@ -1,10 +1,17 @@
 package Bradshaw_Marina_Project;
 
-public class Sailboat extends Boat{
+public class Sailboat extends Boat {
 
     public double keelDedpth;
     public int numberSails;
     public MotorType motorType;
+
+    public Sailboat(){
+        super();
+        this.keelDedpth = 0;
+        this.numberSails = 0;
+        this.motorType = MotorType.Inboard;
+    }
 
     public Sailboat(String stateRegistrationNO, double boatLength, String manufacturer, int year, double keelDedpth,
             int numberSails, MotorType motorType) {
@@ -39,22 +46,31 @@ public class Sailboat extends Boat{
     }
 
     @Override
-    public void assignBoatToSlip() {
-        // TODO Auto-generated method stub
+    public boolean assignBoatToSlip(Slip slip) {
 
+        if (slip == null || slip.boatList.contains(this)) {
+            return false;
+        }
+        slip.boatList.add(this);
+        return true;
     }
 
     @Override
-    public void removeBoatFromSlip() {
-        // TODO Auto-generated method stub
+    public boolean removeBoatFromSlip(Slip slip) {
+
+        if (slip == null || !slip.boatList.contains(this)) {
+            return false;
+        }
+        slip.boatList.remove(this);
+        return true;
 
     }
 
     @Override
     public String tellAboutSelf() {
-        // TODO Auto-generated method stub
-        return null;
+        return super.tellAboutSelf() + "Sailboat \n[keelDedpth=" + keelDedpth + 
+                        "\nmotorType=" + motorType + 
+                        "\nnumberSails=" + numberSails + "]";
     }
-    
     
 }

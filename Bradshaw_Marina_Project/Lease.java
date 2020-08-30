@@ -4,14 +4,19 @@ import java.util.Date;
 
 public abstract class Lease {
 
-    private double amount;
+    private double amount; //lease fee per day;
     private Date startDate;
     private Date endDate;
 
-    public Lease(double amount, Date startDate, Date endDate) {
+    private Customer customer;
+    private Slip slip;
+
+    public Lease(double amount, Date startDate, Date endDate, Customer customer, Slip slip) {
         this.amount = amount;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.customer = customer;
+        this.slip = slip;
     }
 
     public double getAmount() {
@@ -38,6 +43,22 @@ public abstract class Lease {
         this.endDate = endDate;
     }
     
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Slip getSlip() {
+        return slip;
+    }
+
+    public void setSlip(Slip slip) {
+        this.slip = slip;
+    }
+
     public abstract double calculateFee();
 
 }

@@ -6,8 +6,8 @@ public class DailyLease extends Lease {
 
     private int numberOfDays;
 
-    public DailyLease(double amount, Date startDate, Date endDate, int numberOfDays) {
-        super(amount, startDate, endDate);
+    public DailyLease(double amount, Date startDate, Date endDate, Customer customer, Slip slip, int numberOfDays) {
+        super(amount, startDate, endDate, customer, slip);
         this.numberOfDays = numberOfDays;
     }
 
@@ -21,8 +21,7 @@ public class DailyLease extends Lease {
 
     @Override
     public double calculateFee() {
-        // TODO Auto-generated method stub
-        return 0;
+        return this.numberOfDays * this.getAmount();
     }
     
     

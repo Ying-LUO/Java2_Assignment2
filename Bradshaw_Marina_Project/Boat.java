@@ -7,9 +7,24 @@ public abstract class Boat {
     public String manufacturer;
     public int year;
 
-    public abstract void assignBoatToSlip();
-    public abstract void removeBoatFromSlip();
-    public abstract String tellAboutSelf();
+    public abstract boolean assignBoatToSlip(Slip slip);
+    public abstract boolean removeBoatFromSlip(Slip slip);
+
+    public String tellAboutSelf(){
+
+        return "Boat \n[boatLength=" + boatLength + 
+                    "\nmanufacturer=" + manufacturer + 
+                    "\nstateRegistrationNO=" + stateRegistrationNO + 
+                    "\nyear=" + year + "]";
+
+    }
+
+    public Boat(){
+        this.stateRegistrationNO = "";
+        this.boatLength = 0;
+        this.manufacturer = "";
+        this.year = 0;
+    }
 
     public Boat(String stateRegistrationNO, double boatLength, String manufacturer, int year) {
         this.stateRegistrationNO = stateRegistrationNO;
@@ -49,6 +64,6 @@ public abstract class Boat {
     public void setYear(int year) {
         this.year = year;
     }
-    
+ 
 
 }

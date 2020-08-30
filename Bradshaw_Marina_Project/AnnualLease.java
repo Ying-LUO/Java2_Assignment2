@@ -4,11 +4,11 @@ import java.util.Date;
 
 public class AnnualLease extends Lease {
 
-    private double payMonthly;
+    private double payMonthly; // lease fee per month
     private double balanceDue;
 
-    public AnnualLease(double amount, Date startDate, Date endDate, double payMonthly, double balanceDue) {
-        super(amount, startDate, endDate);
+    public AnnualLease(double amount, Date startDate, Date endDate, Customer customer, Slip slip, double payMonthly, double balanceDue) {
+        super(amount, startDate, endDate, customer, slip);
         this.payMonthly = payMonthly;
         this.balanceDue = balanceDue;
     }
@@ -31,8 +31,7 @@ public class AnnualLease extends Lease {
 
     @Override
     public double calculateFee() {
-        // TODO Auto-generated method stub
-        return 0;
+        return 
     }
 
 
