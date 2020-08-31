@@ -11,6 +11,12 @@ public abstract class Lease {
     private Customer customer;
     private Slip slip;
 
+    public Lease(){
+        this.amount = 0;
+        this.startDate = new Date(0);
+        this.endDate = new Date(0);
+    }
+
     public Lease(double amount, Date startDate, Date endDate, Customer customer, Slip slip) {
         this.amount = amount;
         this.startDate = startDate;
@@ -42,7 +48,7 @@ public abstract class Lease {
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
-    
+
     public Customer getCustomer() {
         return customer;
     }
@@ -59,6 +65,12 @@ public abstract class Lease {
         this.slip = slip;
     }
 
-    public abstract double calculateFee();
+    public abstract double calculateFee(int width);
+
+    public String tellAboutSelf() {
+        return "Lease [amount=" + amount + ", customer=" + customer + ", endDate=" + endDate + ", slip=" + slip
+                + ", startDate=" + startDate + "]";
+    }
+
 
 }

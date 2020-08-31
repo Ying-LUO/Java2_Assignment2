@@ -6,9 +6,9 @@ public class DailyLease extends Lease {
 
     private int numberOfDays;
 
-    public DailyLease(double amount, Date startDate, Date endDate, Customer customer, Slip slip, int numberOfDays) {
+    public DailyLease(double amount, Date startDate, Date endDate, Customer customer, Slip slip) {
         super(amount, startDate, endDate, customer, slip);
-        this.numberOfDays = numberOfDays;
+        this.numberOfDays = (int)(startDate.getTime() - endDate.getTime());
     }
 
     public int getNumberOfDays() {
@@ -20,9 +20,24 @@ public class DailyLease extends Lease {
     }
 
     @Override
-    public double calculateFee() {
-        return this.numberOfDays * this.getAmount();
+    public double calculateFee(int width) {
+        double fee;
+
+        if (width == 12){
+            fee = 30 * getNumberOfDays(); 
+        }else if(width == 14){
+            fee = 35 * getNumberOfDays();
+        }else{
+            fee = 25 * getNumberOfDays();
+        }
+
+        return fee; 
     }
     
+    @Override
+    public String tellAboutSelf(){
+        return super.tellAboutSelf() + "\n\tDailyLease [numberOfDays=" + numberOfDays + "]";
+
+    }
     
 }

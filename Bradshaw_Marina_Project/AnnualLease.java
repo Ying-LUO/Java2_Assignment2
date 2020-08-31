@@ -4,21 +4,26 @@ import java.util.Date;
 
 public class AnnualLease extends Lease {
 
-    private double payMonthly; // lease fee per month
+    private boolean isPayMonthly; 
     private double balanceDue;
 
-    public AnnualLease(double amount, Date startDate, Date endDate, Customer customer, Slip slip, double payMonthly, double balanceDue) {
+    public AnnualLease(double amount, Date startDate, Date endDate, Customer customer, Slip slip, boolean payMonthly, double balanceDue) {
         super(amount, startDate, endDate, customer, slip);
-        this.payMonthly = payMonthly;
-        this.balanceDue = balanceDue;
+        setPayMonthly(isPayMonthly);
+
+        if(payMonthly){
+            setBalanceDue(getAmount() - getAmount()/12);
+        }else{
+            setBalanceDue(0);
+        }
     }
 
-    public double getPayMonthly() {
-        return payMonthly;
+    public boolean isPayMonthly() {
+        return isPayMonthly;
     }
 
-    public void setPayMonthly(double payMonthly) {
-        this.payMonthly = payMonthly;
+    public void setPayMonthly(boolean isPayMonthly) {
+        this.isPayMonthly = isPayMonthly;
     }
 
     public double getBalanceDue() {
@@ -30,9 +35,23 @@ public class AnnualLease extends Lease {
     }
 
     @Override
-    public double calculateFee() {
-        return 
+    public double calculateFee(int width) {
+        double fee;
+
+        if (width == 12){
+            fee = 800; 
+        }else if(width == 14){
+            fee = 1000;
+        }else{
+            fee = 600;
+        }
+
+        return fee; 
     }
 
+    public String tellAboutSelf(){
+        return super.tellAboutSelf() + "\n\tAnnualLease [balanceDue=" + balanceDue + ", isPayMonthly=" + isPayMonthly + "]";
+
+    }
 
 }

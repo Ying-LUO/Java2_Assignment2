@@ -35,24 +35,6 @@ public class Rowboat extends Boat{
     }
 
     @Override
-    public boolean assignBoatToSlip(Slip slip) {
-        if (slip == null || slip.boatList.contains(this)) {
-            return false;
-        }
-        slip.boatList.add(this);
-        return true;
-    }
-
-    @Override
-    public boolean removeBoatFromSlip(Slip slip) {
-        if (slip == null || !slip.boatList.contains(this)) {
-            return false;
-        }
-        slip.boatList.remove(this);
-        return true;
-    }
-
-    @Override
     public String tellAboutSelf() {
         return super.tellAboutSelf() + "Rowboat \n[typeOfMaterial=" + typeOfMaterial + 
         "\noarType=" + oarType + "]";

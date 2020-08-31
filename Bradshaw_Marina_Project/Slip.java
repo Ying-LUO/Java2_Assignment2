@@ -1,46 +1,76 @@
 package Bradshaw_Marina_Project;
 
-import java.util.ArrayList;
-import java.util.Date;
-
 public class Slip {
 
-    public int slipID;
-    public double width;
-    public double slipLength;
+    private int slipID;
+    private int width;
+    private double slipLength;
 
-    public ArrayList<Boat> boatList;
-    public ArrayList<Customer> customerList;
+    private Dock dock;
 
     public Slip(){
         this.slipID = 0;
         this.width = 0;
         this.slipLength = 0;
-        this.boatList = new ArrayList<Boat>();
-        this.customerList = new ArrayList<Customer>();
     }
 
-    public Slip(int slipID, double width, double slipLength, Boat boat, Customer customer) {
+    public Slip(int slipID, int width, double slipLength) {
         this.slipID = slipID;
         this.width = width;
         this.slipLength = slipLength;
-        this.boatList = new ArrayList<Boat>();;
-        this.customerList = new ArrayList<Customer>();
     }
 
-    public Lease leaseSlip(Boat boat, Customer customer){
-        
-        this.boatList.add(boat);
-        this.customerList.add(customer);
-        
+    public double leaseSlip(double width){
+
+        // assume three slip type by width: 12 / 14 / other, not check the invalid value input
+        double fee;
+
+        if (width == 12){
+            fee = 800; 
+        }else if(width == 14){
+            fee = 1000;
+        }else{
+            fee = 600;
+        }
+
+        return fee;
     }
 
-    public Lease leaseSlip(Boat boat, Date startDate){
-        
-        return new Lease();
-        
+    public int getSlipID() {
+        return slipID;
     }
 
+    public void setSlipID(int slipID) {
+        this.slipID = slipID;
+    }
 
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public double getSlipLength() {
+        return slipLength;
+    }
+
+    public void setSlipLength(double slipLength) {
+        this.slipLength = slipLength;
+    }
+
+    public Dock getDock() {
+        return dock;
+    }
+
+    public void setDock(Dock dock) {
+        this.dock = dock;
+    }
+
+    public String tellAboutSelf() {
+        return "Slip [slipID=" + slipID + "\nslipLength=" + slipLength + "\nwidth="
+                + width + "]";
+    }
 
 }

@@ -2,22 +2,12 @@ package Bradshaw_Marina_Project;
 
 public abstract class Boat {
 
-    public String stateRegistrationNO;
-    public double boatLength;
-    public String manufacturer;
-    public int year;
+    private String stateRegistrationNO;
+    private double boatLength;
+    private String manufacturer;
+    private int year;
 
-    public abstract boolean assignBoatToSlip(Slip slip);
-    public abstract boolean removeBoatFromSlip(Slip slip);
-
-    public String tellAboutSelf(){
-
-        return "Boat \n[boatLength=" + boatLength + 
-                    "\nmanufacturer=" + manufacturer + 
-                    "\nstateRegistrationNO=" + stateRegistrationNO + 
-                    "\nyear=" + year + "]";
-
-    }
+    private Customer customer; // assume one customer has only one boat
 
     public Boat(){
         this.stateRegistrationNO = "";
@@ -64,6 +54,33 @@ public abstract class Boat {
     public void setYear(int year) {
         this.year = year;
     }
- 
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public boolean assignBoatToCustomer(Customer customer){
+
+        if (customer == null) {
+            return false;
+        }
+        setCustomer(customer);
+        customer.setBoat(this);
+        return true;
+    }
+
+    public String tellAboutSelf(){
+
+        return "Boat \n[boatLength=" + boatLength + 
+                    "\nmanufacturer=" + manufacturer + 
+                    "\nstateRegistrationNO=" + stateRegistrationNO + 
+                    "\nyear=" + year + 
+                    "\ncustomer=" + customer.toString() + "]";
+
+    }
 
 }

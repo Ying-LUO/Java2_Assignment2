@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class Dock {
 
-    public int dockID;
-    public String location;
-    public Boolean electricity;
-    public Boolean water;
+    private int dockID;
+    private String location;
+    private Boolean electricity;
+    private Boolean water;
 
     private ArrayList<Slip> slipList;
 
@@ -26,7 +26,39 @@ public class Dock {
         this.water = water;
         this.slipList = new ArrayList<Slip>();
     }
-    
+
+    public int getDockID() {
+        return dockID;
+    }
+
+    public void setDockID(int dockID) {
+        this.dockID = dockID;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public Boolean getElectricity() {
+        return electricity;
+    }
+
+    public void setElectricity(Boolean electricity) {
+        this.electricity = electricity;
+    }
+
+    public Boolean getWater() {
+        return water;
+    }
+
+    public void setWater(Boolean water) {
+        this.water = water;
+    }
+
     public boolean addSlipToDock(Slip slip){
 
         if (slip == null || slipList.contains(slip)) {
@@ -36,6 +68,5 @@ public class Dock {
         return true;
 
     }
-
-
+    
 }

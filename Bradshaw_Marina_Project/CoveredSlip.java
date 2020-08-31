@@ -11,12 +11,11 @@ public class CoveredSlip extends Slip{
         this.door = true;
     }
 
-    public CoveredSlip(int slipID, double width, double slipLength, double height, boolean door) {
+    public CoveredSlip(int slipID, int width, double slipLength, double height, boolean door) {
         super(slipID, width, slipLength);
         this.height = height;
         this.door = door;
     }
 
-    
     
 }

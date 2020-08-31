@@ -6,6 +6,14 @@ public class Customer {
     private String address;
     private String phoneNo;
 
+    private Boat boat;
+
+    public Customer(){
+        this.name = "";
+        this.address = "";
+        this.phoneNo = "";
+    }
+
     public Customer(String name, String address, String phoneNo) {
         this.name = name;
         this.address = address;
@@ -35,5 +43,15 @@ public class Customer {
     public void setPhoneNo(String phoneNo) {
         this.phoneNo = phoneNo;
     }
+
+    public Boat getBoat() {
+        return boat;
+    }
+
+    public void setBoat(Boat boat) {
+        this.boat = boat;
+    }
+
+    
 
 }
