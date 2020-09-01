@@ -1,0 +1,34 @@
+@startuml 
+
+title Lease daily slip to new customer
+actor MarinaManager
+
+participant aSlip 
+participant aBoat 
+
+MarinaManager -> aSlip : leaseSlip(boat.width)
+activate aSlip
+
+aSlip -> aBoat : assignBoatToSlip()
+activate aBoat
+aBoat --> aSlip : boatDetails
+deactivate aBoat
+
+aSlip -> aDailyLease : create(startDate, numberOfDays)
+activate aDailyLease
+aDailyLease -> aDailyLease : calculateFee()
+aDailyLease --> aSlip : endDate & fee
+deactivate aDailyLease
+
+aSlip -> aCustomer : create()
+activate aCustomer
+aCustomer --> MarinaManager : getCustomerDetails()
+MarinaManager -> aCustomer : customer infor
+aCustomer --> aSlip : customer details
+deactivate aCustomer
+
+aSlip --> MarinaManager : lease details
+deactivate aSlip
+
+
+@enduml

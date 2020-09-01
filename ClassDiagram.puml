@@ -1,0 +1,162 @@
+@startuml Bradshaw Marina Case Study Class Diagram
+skinparam classAttributeIconSize 0
+abstract class Lease{
+    -amount : double
+    -startDate : Date
+    -endDate : Date
+    -Customer : customer
+    -Slip : slip
+    +double calculateFee(Width)
+    +String tellAboutSelf()
+}
+
+class AnnualLease{
+    -isPayMonthly : boolean
+    -balanceDue : Double
+    +double calculateFee(Width)
+    +String tellAboutSelf()
+}
+
+class DailyLease{
+    -numberOfDays : Integer
+    +double calculateFee(Width)
+    +String tellAboutSelf()
+}
+
+class Boat{
+    -stateRegistrationNO : String
+    -boatLength : Double
+    -manufacturer : String
+    -year : Integer
+    -Customer : customer
+    +boolean assignBoatToCustomer(Boat)
+    +String tellAboutSelf()
+}
+
+class Sailboat{
+    +keelDedpth : Double
+    +numberSails : Integer
+    +MotorType : enum
+    +String tellAboutSelf()
+}
+
+class Powerboat{
+    +numberEngines : Integer
+    +FuelType : enum
+    +String tellAboutSelf()
+}
+
+class Rowboat{
+    +MaterialType : enum
+    +OarType : enum
+    +String tellAboutSelf()
+}
+
+class CruisingSailBoat{
+    +lifeRaftmanufacturer : String
+}
+
+class PersonalWatercraft{
+    +numberOfPassengers : Integer
+    +topSpeed : Integer
+}
+
+class Customer{
+    -name : String
+    -address : String
+    -phoneNO : String
+    -boat : Boat
+    +getters()
+    +setters()
+}
+
+class Slip{
+    -slipID : int
+    -width : Double
+    -slipLength : Double
+    -Dock : dock
+    +getters()
+    +setters()
+    +double leaseSlip(width)
+    +String tellAboutSelf()
+}
+
+class CoveredSlip{
+    +height : Double
+    +door : Boolean
+}
+
+class Dock{
+    -dockID : int
+    -location : String
+    -electricity : Boolean
+    -water : Boolean
+    -slipList : ArrayList<Slip>
+    +boolean addSlipToDock(Slip aSlip)
+}
+
+class BoatService{
+    +Double calculateCharge(Lease aLease)
+    +String produceMonthlyReport()
+}
+
+class ServiceType{
+    +void repair()
+    +void haulOut()
+    +void painting()
+    +void maintain()
+}
+
+class ServiceParts{
+    +partOfBoat : String[]
+}
+
+
+class ServiceTransaction{
+    +void deposit()
+    +void partialPayment()
+    +void credit()
+    +void refund()
+}
+
+interface BillingOperation{
+    +{abstract} void generateBill()
+    +{abstract} void recordPayment()
+    +{abstract} void sendLateNotice()
+    +{abstract} void produceAccountReceivable()
+}
+
+
+Customer "0..*" - "0..*" Slip
+(Customer, Slip) .. Lease
+
+Boat <|-- Sailboat
+Boat <|-- Powerboat
+Boat <|-- Rowboat
+
+Sailboat <|-- CruisingSailBoat
+Powerboat <|-- PersonalWatercraft
+
+Slip <|-- CoveredSlip
+
+Lease <|-- AnnualLease
+Lease <|-- DailyLease
+
+Customer "1" o-- "0..1" Boat
+Dock "1" o-- "many" Slip
+Slip "1" o-- "1" Boat
+
+Customer "0..*" - "1..*" Boat
+(Customer, Boat) .. BoatService
+
+class BoatService implements BillingOperation
+class Lease implements BillingOperation
+
+BoatService "1" *-- "many" ServiceTransaction
+Lease "1" *-- "many" ServiceTransaction
+
+BoatService "1" *-- "1" ServiceType
+ServiceType "1" *-- "many" ServiceParts
+
+
+@enduml
