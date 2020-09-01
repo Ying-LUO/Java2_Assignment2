@@ -1,0 +1,2 @@
+RegNo_03_SHARK_CAN_215   7.5   Manufacturer_03 2016    1   MGO_marine_gas_oil
+RegNo_04_JT_US_12X987   10.5   Manufacturer_04 2018    2    MDO_marine_diesel_oil

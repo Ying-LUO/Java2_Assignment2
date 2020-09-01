@@ -75,11 +75,10 @@ public abstract class Boat {
 
     public String tellAboutSelf(){
 
-        return "Boat \n[boatLength=" + boatLength + 
-                    "\nmanufacturer=" + manufacturer + 
-                    "\nstateRegistrationNO=" + stateRegistrationNO + 
-                    "\nyear=" + year + 
-                    "\ncustomer=" + customer.toString() + "]";
+        return "Boat \n\t[boatLength=" + boatLength + 
+                    "\n\tmanufacturer=" + manufacturer + 
+                    "\n\tstateRegistrationNO=" + stateRegistrationNO + 
+                    "\n\tyear=" + year + "]";
 
     }
 

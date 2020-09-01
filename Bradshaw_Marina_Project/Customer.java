@@ -52,6 +52,10 @@ public class Customer {
         this.boat = boat;
     }
 
-    
+    @Override
+    public String toString() {
+        return "Customer [address=" + address + ", boat=" + boat + ", name=" + name + ", phoneNo=" + phoneNo + "]";
+    }
+
 
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Dock {
 
-    private int dockID;
+    private String dockID;
     private String location;
     private Boolean electricity;
     private Boolean water;
@@ -12,14 +12,14 @@ public class Dock {
     private ArrayList<Slip> slipList;
 
     public Dock(){
-        this.dockID = 0;
+        this.dockID = "";
         this.location = "";
         this.electricity = true;
         this.water = true;
         this.slipList = new ArrayList<Slip>();
     }
 
-    public Dock(int dockID, String location, Boolean electricity, Boolean water) {
+    public Dock(String dockID, String location, Boolean electricity, Boolean water) {
         this.dockID = dockID;
         this.location = location;
         this.electricity = electricity;
@@ -27,11 +27,11 @@ public class Dock {
         this.slipList = new ArrayList<Slip>();
     }
 
-    public int getDockID() {
+    public String getDockID() {
         return dockID;
     }
 
-    public void setDockID(int dockID) {
+    public void setDockID(String dockID) {
         this.dockID = dockID;
     }
 
@@ -68,5 +68,21 @@ public class Dock {
         return true;
 
     }
+
+    @Override
+    public String toString() {
+        return "Dock [dockID=" + dockID + ", electricity=" + electricity + ", location=" + location + ", water=" + water
+                + "]";
+    }
+
+    public ArrayList<Slip> getSlipList() {
+        return slipList;
+    }
+
+    public void setSlipList(ArrayList<Slip> slipList) {
+        this.slipList = slipList;
+    }
+
+    
     
 }

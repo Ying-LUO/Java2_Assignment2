@@ -36,8 +36,8 @@ public class Powerboat extends Boat{
 
     @Override
     public String tellAboutSelf() {
-        return super.tellAboutSelf() + "Powerboat \n[fuelType=" + fuelType + 
-                        "\nnumberEngines=" + numberEngines + "]";
+        return super.tellAboutSelf() + "\n\n\tPowerboat \n\t\t[fuelType=" + fuelType + 
+                        "\n\t\tnumberEngines=" + numberEngines + "]";
     }
     
 }

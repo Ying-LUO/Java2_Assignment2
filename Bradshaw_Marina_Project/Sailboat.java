@@ -47,9 +47,9 @@ public class Sailboat extends Boat {
 
     @Override
     public String tellAboutSelf() {
-        return super.tellAboutSelf() + "Sailboat \n[keelDedpth=" + keelDedpth + 
-                        "\nmotorType=" + motorType + 
-                        "\nnumberSails=" + numberSails + "]";
+        return super.tellAboutSelf() + "\n\n\tSailboat \n\t\t[keelDedpth=" + keelDedpth + 
+                        "\n\t\tmotorType=" + motorType + 
+                        "\n\t\tnumberSails=" + numberSails + "]";
     }
     
 }

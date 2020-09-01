@@ -2,19 +2,19 @@ package Bradshaw_Marina_Project;
 
 public class Slip {
 
-    private int slipID;
+    private String slipID;
     private int width;
     private double slipLength;
 
     private Dock dock;
 
     public Slip(){
-        this.slipID = 0;
+        this.slipID = "";
         this.width = 0;
         this.slipLength = 0;
     }
 
-    public Slip(int slipID, int width, double slipLength) {
+    public Slip(String slipID, int width, double slipLength) {
         this.slipID = slipID;
         this.width = width;
         this.slipLength = slipLength;
@@ -36,11 +36,11 @@ public class Slip {
         return fee;
     }
 
-    public int getSlipID() {
+    public String getSlipID() {
         return slipID;
     }
 
-    public void setSlipID(int slipID) {
+    public void setSlipID(String slipID) {
         this.slipID = slipID;
     }
 
@@ -69,8 +69,8 @@ public class Slip {
     }
 
     public String tellAboutSelf() {
-        return "Slip [slipID=" + slipID + "\nslipLength=" + slipLength + "\nwidth="
-                + width + "]";
+        return "Slip [slipID=" + slipID + "\n\tslipLength=" + slipLength + "\n\twidth="
+                + width + "]\n";
     }
 
 }

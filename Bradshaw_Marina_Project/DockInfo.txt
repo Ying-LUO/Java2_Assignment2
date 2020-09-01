@@ -1,0 +1,2 @@
+DockID_01   Basin_A True    False
+DockID_02   Basin_B False    True

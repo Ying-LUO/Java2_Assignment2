@@ -1,0 +1,6 @@
+Slip_ID_01  12  30
+Slip_ID_02  12  40
+Slip_ID_03  14  50
+Slip_ID_04  14  45
+Slip_ID_05  10  35
+Slip_ID_05  10  45
