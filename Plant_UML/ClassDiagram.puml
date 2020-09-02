@@ -29,43 +29,45 @@ class Boat{
     -manufacturer : String
     -year : Integer
     -Customer : customer
+    -Slip : slip
     +boolean assignBoatToCustomer(Boat)
     +String tellAboutSelf()
 }
 
 class Sailboat{
-    +keelDedpth : Double
-    +numberSails : Integer
-    +MotorType : enum
+    -keelDedpth : Double
+    -numberSails : Integer
+    -MotorType : enum
     +String tellAboutSelf()
 }
 
 class Powerboat{
-    +numberEngines : Integer
-    +FuelType : enum
+    -numberEngines : Integer
+    -FuelType : enum
     +String tellAboutSelf()
 }
 
 class Rowboat{
-    +MaterialType : enum
-    +OarType : enum
+    -MaterialType : enum
+    -OarType : enum
     +String tellAboutSelf()
 }
 
 class CruisingSailBoat{
-    +lifeRaftmanufacturer : String
+    -lifeRaftmanufacturer : String
 }
 
 class PersonalWatercraft{
-    +numberOfPassengers : Integer
-    +topSpeed : Integer
+    -numberOfPassengers : Integer
+    -topSpeed : Integer
 }
 
 class Customer{
     -name : String
     -address : String
     -phoneNO : String
-    -boat : Boat
+    -boatArrayList : ArrayList<Boat>
+    +boolean addBoatToCustomer(Boat boat)
     +getters()
     +setters()
 }
@@ -75,15 +77,17 @@ class Slip{
     -width : Double
     -slipLength : Double
     -Dock : dock
+    -Boat : boat
     +getters()
     +setters()
-    +double leaseSlip(width)
+    +double leaseSlip()
     +String tellAboutSelf()
+    +void removeBoatFromSlip(Boat)
 }
 
 class CoveredSlip{
-    +height : Double
-    +door : Boolean
+    -height : Double
+    -door : Boolean
 }
 
 class Dock{
@@ -91,12 +95,12 @@ class Dock{
     -location : String
     -electricity : Boolean
     -water : Boolean
-    -slipList : ArrayList<Slip>
-    +boolean addSlipToDock(Slip aSlip)
+    -slipArrayList : ArrayList<Slip>
+    +boolean addSlipToDock(Slip slip)
 }
 
 class BoatService{
-    +Double calculateCharge(Lease aLease)
+    +Double calculateCharge(Lease lease)
     +String produceMonthlyReport()
 }
 
@@ -108,7 +112,7 @@ class ServiceType{
 }
 
 class ServiceParts{
-    +partOfBoat : String[]
+    -partOfBoat: enum
 }
 
 
@@ -142,11 +146,11 @@ Slip <|-- CoveredSlip
 Lease <|-- AnnualLease
 Lease <|-- DailyLease
 
-Customer "1" o-- "0..1" Boat
+Customer "1" o-- "many" Boat
 Dock "1" o-- "many" Slip
 Slip "1" o-- "1" Boat
 
-Customer "0..*" - "1..*" Boat
+Customer "1" - "many" Boat
 (Customer, Boat) .. BoatService
 
 class BoatService implements BillingOperation
