@@ -1,43 +1,41 @@
 package Bradshaw_Marina_Project;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.*;
 
-public class DailyLease extends Lease {
+public class DailyLease extends Lease{
 
     private int numberOfDays;
 
-    public DailyLease(double amount, Date startDate, Date endDate, Customer customer, Slip slip) {
-        super(amount, startDate, endDate, customer, slip);
-        this.numberOfDays = (int)(startDate.getTime() - endDate.getTime());
+    public DailyLease(LocalDate startDate, LocalDate endDate, Customer customer, Slip slip) {
+        super(startDate, endDate, customer, slip);
+        this.numberOfDays = (int)(ChronoUnit.DAYS.between(getStartDate(), getEndDate()));
+        this.setAmount(calculateFee(slip.getWidth()));
     }
 
+    // there is no set method for numberOfDays because it was calculated by startDate and endDate
     public int getNumberOfDays() {
         return numberOfDays;
-    }
-
-    public void setNumberOfDays(int numberOfDays) {
-        this.numberOfDays = numberOfDays;
     }
 
     @Override
     public double calculateFee(int width) {
         double fee;
-
-        if (width == 12){
-            fee = 30 * getNumberOfDays(); 
-        }else if(width == 14){
-            fee = 35 * getNumberOfDays();
-        }else{
-            fee = 25 * getNumberOfDays();
+        switch(width)
+        {
+            case 10:fee=20*getNumberOfDays();break;
+            case 12:fee=25*getNumberOfDays();break;
+            case 14:fee=30*getNumberOfDays();break;
+            case 16:fee=35*getNumberOfDays();break;
+            default:fee=0;
         }
-
-        return fee; 
+        return fee;
     }
-    
+
     @Override
     public String tellAboutSelf(){
-        return super.tellAboutSelf() + "\n\tDailyLease [numberOfDays=" + numberOfDays + "]";
+        return "\tDailyLease [numberOfDays=" + numberOfDays + ", " + super.tellAboutSelf() + "\n";
 
     }
-    
 }

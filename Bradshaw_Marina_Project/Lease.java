@@ -1,24 +1,19 @@
 package Bradshaw_Marina_Project;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public abstract class Lease {
 
-    private double amount; //lease fee per day;
-    private Date startDate;
-    private Date endDate;
+    private double amount; //lease fee
+    private LocalDate startDate;
+    private LocalDate endDate;
 
     private Customer customer;
     private Slip slip;
 
-    public Lease(){
+    // Only provide the parameter constructor
+    public Lease(LocalDate startDate, LocalDate endDate, Customer customer, Slip slip) {
         this.amount = 0;
-        this.startDate = new Date(0);
-        this.endDate = new Date(0);
-    }
-
-    public Lease(double amount, Date startDate, Date endDate, Customer customer, Slip slip) {
-        this.amount = amount;
         this.startDate = startDate;
         this.endDate = endDate;
         this.customer = customer;
@@ -33,19 +28,19 @@ public abstract class Lease {
         this.amount = amount;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 
@@ -68,9 +63,9 @@ public abstract class Lease {
     public abstract double calculateFee(int width);
 
     public String tellAboutSelf() {
-        return "Lease [amount=" + amount + ", customer=" + customer + ", endDate=" + endDate + ", slip=" + slip
-                + ", startDate=" + startDate + "]";
+        return "amount=" + amount + "\n\tcustomer=" + customer +
+                "\n\tstartDate=" + startDate + "\n\tendDate=" + endDate +
+                "\n\tslip=" + slip.tellAboutSelf() + "\n";
     }
-
 
 }

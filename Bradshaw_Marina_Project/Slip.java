@@ -2,11 +2,14 @@ package Bradshaw_Marina_Project;
 
 public class Slip {
 
+    public static final Slip EMPTY_SLIP = new Slip("EMPTY_SLIP", 0, 0);
+
     private String slipID;
     private int width;
     private double slipLength;
 
     private Dock dock;
+    private Boat boat;
 
     public Slip(){
         this.slipID = "";
@@ -20,19 +23,19 @@ public class Slip {
         this.slipLength = slipLength;
     }
 
-    public double leaseSlip(double width){
+    public double leaseSlip(){
 
-        // assume three slip type by width: 12 / 14 / other, not check the invalid value input
+        // assume slip fee type by width
         double fee;
 
-        if (width == 12){
-            fee = 800; 
-        }else if(width == 14){
-            fee = 1000;
-        }else{
-            fee = 600;
+        switch(this.width)
+        {
+            case 10: fee=800;break;
+            case 12: fee=900;break;
+            case 14: fee=1100;break;
+            case 16: fee=1500;break;
+            default: fee=0;break;
         }
-
         return fee;
     }
 
@@ -69,8 +72,20 @@ public class Slip {
     }
 
     public String tellAboutSelf() {
-        return "Slip [slipID=" + slipID + "\n\tslipLength=" + slipLength + "\n\twidth="
-                + width + "]\n";
+        return "[slipID=" + slipID + "\tslipLength=" + slipLength + "\tslipWidth="
+                + width + "]";
     }
 
+    public Boat getBoat() {
+        return boat;
+    }
+
+    public void setBoat(Boat boat) {
+        this.boat = boat;
+    }
+
+    public void removeBoatFromSlip(Boat boat){
+        this.boat = null;
+        boat.setSlip(Slip.EMPTY_SLIP);
+    }
 }

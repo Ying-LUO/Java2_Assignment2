@@ -2,8 +2,8 @@ package Bradshaw_Marina_Project;
 
 public class Powerboat extends Boat{
 
-    public int numberEngines;
-    public FuelType fuelType;
+    private int numberEngines;
+    private FuelType fuelType;
 
     public Powerboat(){
         super();
@@ -12,7 +12,7 @@ public class Powerboat extends Boat{
     }
 
     public Powerboat(String stateRegistrationNO, double boatLength, String manufacturer, int year, int numberEngines,
-                    FuelType fuelType) {
+                     FuelType fuelType) {
         super(stateRegistrationNO, boatLength, manufacturer, year);
         this.numberEngines = numberEngines;
         this.fuelType = fuelType;
@@ -36,8 +36,7 @@ public class Powerboat extends Boat{
 
     @Override
     public String tellAboutSelf() {
-        return super.tellAboutSelf() + "\n\n\tPowerboat \n\t\t[fuelType=" + fuelType + 
-                        "\n\t\tnumberEngines=" + numberEngines + "]";
+        return "\tPowerboat \t[fuelType=" + fuelType +
+                "\tnumberEngines=" + numberEngines + super.tellAboutSelf() + "]\n";
     }
-    
 }

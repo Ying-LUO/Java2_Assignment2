@@ -1,8 +1,8 @@
 package Bradshaw_Marina_Project;
 
-public class CruisingSailboat extends Sailboat {
+public class CruisingSailboat extends Sailboat{
 
-    public String lifeRaftManufacturer;
+    private String lifeRaftManufacturer;
 
     public CruisingSailboat(){
         super();
@@ -10,7 +10,7 @@ public class CruisingSailboat extends Sailboat {
     }
 
     public CruisingSailboat(String stateRegistrationNO, double boatLength, String manufacturer, int year,
-            double keelDedpth, int numberSails, MotorType motorType, String lifeRaftManufacturer) {
+                            double keelDedpth, int numberSails, MotorType motorType, String lifeRaftManufacturer) {
         super(stateRegistrationNO, boatLength, manufacturer, year, keelDedpth, numberSails, motorType);
         this.lifeRaftManufacturer = lifeRaftManufacturer;
     }
@@ -22,6 +22,10 @@ public class CruisingSailboat extends Sailboat {
     public void setLifeRaftManufactor(String lifeRaftManufacturer) {
         this.lifeRaftManufacturer = lifeRaftManufacturer;
     }
-    
-    
+
+    @Override
+    public String tellAboutSelf() {
+        return "CruisingSailboat \t[" + "lifeRaftManufacturer='" + lifeRaftManufacturer + super.tellAboutSelf() + "]\n";
+    }
+
 }

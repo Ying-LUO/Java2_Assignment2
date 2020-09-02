@@ -9,14 +9,14 @@ public class Dock {
     private Boolean electricity;
     private Boolean water;
 
-    private ArrayList<Slip> slipList;
+    private ArrayList<Slip> slipArrayList;
 
     public Dock(){
         this.dockID = "";
         this.location = "";
         this.electricity = true;
         this.water = true;
-        this.slipList = new ArrayList<Slip>();
+        this.slipArrayList = new ArrayList<Slip>();
     }
 
     public Dock(String dockID, String location, Boolean electricity, Boolean water) {
@@ -24,7 +24,7 @@ public class Dock {
         this.location = location;
         this.electricity = electricity;
         this.water = water;
-        this.slipList = new ArrayList<Slip>();
+        this.slipArrayList = new ArrayList<Slip>();
     }
 
     public String getDockID() {
@@ -61,10 +61,10 @@ public class Dock {
 
     public boolean addSlipToDock(Slip slip){
 
-        if (slip == null || slipList.contains(slip)) {
+        if (slip == null || slipArrayList.contains(slip)) {
             return false;
         }
-        slipList.add(slip);
+        slipArrayList.add(slip);
         return true;
 
     }
@@ -75,14 +75,12 @@ public class Dock {
                 + "]";
     }
 
-    public ArrayList<Slip> getSlipList() {
-        return slipList;
+    public ArrayList<Slip> getSlipArrayList() {
+        return slipArrayList;
     }
 
-    public void setSlipList(ArrayList<Slip> slipList) {
-        this.slipList = slipList;
+    public void setSlipArrayList(ArrayList<Slip> slipArrayList) {
+        this.slipArrayList = slipArrayList;
     }
 
-    
-    
 }

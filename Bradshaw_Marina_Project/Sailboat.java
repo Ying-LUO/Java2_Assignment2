@@ -1,10 +1,10 @@
 package Bradshaw_Marina_Project;
 
-public class Sailboat extends Boat {
+public class Sailboat extends Boat{
 
-    public double keelDedpth;
-    public int numberSails;
-    public MotorType motorType;
+    private double keelDedpth;
+    private int numberSails;
+    private MotorType motorType;
 
     public Sailboat(){
         super();
@@ -14,7 +14,7 @@ public class Sailboat extends Boat {
     }
 
     public Sailboat(String stateRegistrationNO, double boatLength, String manufacturer, int year, double keelDedpth,
-            int numberSails, MotorType motorType) {
+                    int numberSails, MotorType motorType) {
         super(stateRegistrationNO, boatLength, manufacturer, year);
         this.keelDedpth = keelDedpth;
         this.numberSails = numberSails;
@@ -47,9 +47,8 @@ public class Sailboat extends Boat {
 
     @Override
     public String tellAboutSelf() {
-        return super.tellAboutSelf() + "\n\n\tSailboat \n\t\t[keelDedpth=" + keelDedpth + 
-                        "\n\t\tmotorType=" + motorType + 
-                        "\n\t\tnumberSails=" + numberSails + "]";
+        return "\tSailboat \t[keelDedpth=" + keelDedpth +
+                "\tmotorType=" + motorType +
+                "\tnumberSails=" + numberSails + super.tellAboutSelf() + "]\n";
     }
-    
 }

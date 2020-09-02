@@ -1,2 +1,2 @@
-RegNo_01_J22_CAN_815 8.5   Manufacturer_01 2020    10.0   2   SternDrive
-RegNo_02_USYRU_RRS_77   6.8   Manufacturer_02 2014    8.0   1   JetDrive
+RegNo_01_J22_CAN_815 8.5   Manufacturer_01 2020    10   2   SternDrive
+RegNo_02_USYRU_RRS_77   6.8   Manufacturer_02 2014    8   1   JetDrive

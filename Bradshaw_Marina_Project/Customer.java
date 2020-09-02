@@ -1,23 +1,26 @@
 package Bradshaw_Marina_Project;
 
-public class Customer {
+import java.util.ArrayList;
 
+public class Customer {
     private String name;
     private String address;
     private String phoneNo;
 
-    private Boat boat;
+    private ArrayList<Boat> boatArrayList;
 
     public Customer(){
         this.name = "";
         this.address = "";
         this.phoneNo = "";
+        this.boatArrayList = new ArrayList<Boat>();
     }
 
     public Customer(String name, String address, String phoneNo) {
         this.name = name;
         this.address = address;
         this.phoneNo = phoneNo;
+        this.boatArrayList = new ArrayList<Boat>();
     }
 
     public String getName() {
@@ -44,18 +47,30 @@ public class Customer {
         this.phoneNo = phoneNo;
     }
 
-    public Boat getBoat() {
-        return boat;
+    public ArrayList<Boat> getBoatArrayList() {
+        return boatArrayList;
     }
 
-    public void setBoat(Boat boat) {
-        this.boat = boat;
+    public void setBoatArrayList(ArrayList<Boat> boatArrayList) {
+        this.boatArrayList = boatArrayList;
+    }
+
+    public boolean addBoatToCustomer(Boat boat){
+
+        if (boat == null || boatArrayList.contains(boat)) {
+            return false;
+        }
+        boatArrayList.add(boat);
+        return true;
     }
 
     @Override
     public String toString() {
-        return "Customer [address=" + address + ", boat=" + boat + ", name=" + name + ", phoneNo=" + phoneNo + "]";
+        return "Customer{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", phoneNo='" + phoneNo + '\'' +
+                '}';
     }
-
 
 }

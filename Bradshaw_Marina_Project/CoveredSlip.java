@@ -2,9 +2,9 @@ package Bradshaw_Marina_Project;
 
 public class CoveredSlip extends Slip{
 
-    public double height;
-    public boolean door;
-    
+    private double height;
+    private boolean door;
+
     public CoveredSlip() {
         super();
         this.height = 0;
@@ -17,5 +17,19 @@ public class CoveredSlip extends Slip{
         this.door = door;
     }
 
-    
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public boolean isDoor() {
+        return door;
+    }
+
+    public void setDoor(boolean door) {
+        this.door = door;
+    }
 }

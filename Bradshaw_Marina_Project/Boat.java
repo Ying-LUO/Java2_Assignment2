@@ -7,7 +7,8 @@ public abstract class Boat {
     private String manufacturer;
     private int year;
 
-    private Customer customer; // assume one customer has only one boat
+    private Customer customer;
+    private Slip slip;
 
     public Boat(){
         this.stateRegistrationNO = "";
@@ -63,22 +64,19 @@ public abstract class Boat {
         this.customer = customer;
     }
 
-    public boolean assignBoatToCustomer(Customer customer){
+    public Slip getSlip() { return slip; }
 
-        if (customer == null) {
-            return false;
-        }
-        setCustomer(customer);
-        customer.setBoat(this);
-        return true;
+    public void setSlip(Slip slip) {
+        this.slip = slip;
+        slip.setBoat(this);
     }
 
     public String tellAboutSelf(){
 
-        return "Boat \n\t[boatLength=" + boatLength + 
-                    "\n\tmanufacturer=" + manufacturer + 
-                    "\n\tstateRegistrationNO=" + stateRegistrationNO + 
-                    "\n\tyear=" + year + "]";
+        return "\n\tboatLength=" + boatLength +
+                "\n\tmanufacturer=" + manufacturer +
+                "\n\tstateRegistrationNO=" + stateRegistrationNO +
+                "\n\tyear=" + year;
 
     }
 
